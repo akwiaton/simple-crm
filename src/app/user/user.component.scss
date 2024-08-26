@@ -1,5 +1,53 @@
+.mat-mdc-card-content {
+  padding: 0 0;
+  padding-bottom: 0;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  > tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &:first-child {
+      cursor: unset;
+      &:hover {
+        background-color: unset;
+      }
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    td {
+      height: 40px;
+
+      &:first-child {
+        padding-left: 16px;
+      }
+    }
+  }
+
+  th {
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 800;
+    font-size: 14px;
+    text-align: start;
+
+    &:first-child {
+      padding-left: 16px;
+    }
+  }
+}
+
 button {
-    position: absolute;
-    right: 56px;
-    bottom: 56px;
+  position: absolute;
+  right: 56px;
+  bottom: 56px;
 }
