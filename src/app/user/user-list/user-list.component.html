@@ -1,0 +1,10 @@
+<div>
+    @for ( user of getList(); track $index) {
+
+        <app-user [user] = "user">
+            
+        </app-user>
+    }
+
+    <!-- <app-user *ngFor="let user of getList(); trackBy: trackByFn" [user]="user"></app-user> -->
+</div>
