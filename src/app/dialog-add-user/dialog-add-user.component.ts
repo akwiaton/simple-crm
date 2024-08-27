@@ -13,8 +13,6 @@ import {provideNativeDateAdapter} from '@angular/material/core';
 
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 
-import { Firestore, collection, collectionData } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
 
 
 
@@ -39,13 +37,7 @@ export class DialogAddUserComponent {
   loading = false;
 
   constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) { }
-  // firestore: Firestore = inject(Firestore);
-  // items$: Observable<any[]>;
-  // constructor() {
-
-  //   const aCollection = collection(this.firestore, 'users')
-  //   this.items$ = collectionData(aCollection);
-  // }
+  
 
 
   

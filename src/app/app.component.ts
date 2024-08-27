@@ -6,8 +6,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
-import { Firestore, collection, collectionData } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -18,11 +17,4 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'simple-crm';
-  // firestore: Firestore = inject(Firestore);
-  // items$: Observable<any[]>;
-
-  // constructor() {
-  //   const aCollection = collection(this.firestore, 'items')
-  //   this.items$ = collectionData(aCollection);
-  // }
 }
