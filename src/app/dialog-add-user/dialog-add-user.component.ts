@@ -13,6 +13,8 @@ import {provideNativeDateAdapter} from '@angular/material/core';
 
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 
+import { FirebaseServicesService } from '../firebase-services.service';
+
 
 
 
@@ -33,21 +35,43 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 export class DialogAddUserComponent {
   
   user = new User();
-  birthDate!: Date;
+  // birthDate!: Date;
   loading = false;
 
-  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) { }
+  @Output() addDialogClosed: EventEmitter<boolean> = new EventEmitter();
+
+  firstName = "";
+  lastName = "";
+  birthDate = "";
+  street = "";
+  zipCode = "";
+  city = "";
+
+  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>, private firebaseService: FirebaseServicesService) { }
   
 
-
+addUser() {
+ let user: User = {
+  firstName: this.firstName,
+  lastName: this.lastName,
+  birthDate:  Number(this.birthDate),
+  street: this.street,
+  zipCode:  Number(this.zipCode),
+  city: this.city,
+ }
+ this.loading = true;
+ this.firebaseService.addUser(user);
+ this.dialogRef.close();
+ this.addDialogClosed.emit(false);
+}
   
-  saveUser() {
-    this.user.birthDate = this.birthDate.getTime();
-    console.log(this.user);
-    this.loading = true;
+  // saveUser() {
+  //   this.user.birthDate = this.birthDate.getTime();
+  //   console.log(this.user);
+  //   this.loading = true;
    
-    this.dialogRef.close();
-  }
+  //   this.dialogRef.close();
+  // }
   
 
 }

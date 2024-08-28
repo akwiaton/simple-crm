@@ -9,11 +9,12 @@ import { User } from '../../models/user.class';
 
 import {MatCardModule} from '@angular/material/card';
 import { FirebaseServicesService } from '../firebase-services.service';
+import { UserListComponent } from "./user-list/user-list.component";
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatIconModule, MatTooltipModule, MatDialogModule],
+  imports: [MatCardModule, MatButtonModule, MatIconModule, MatTooltipModule, MatDialogModule, UserListComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })

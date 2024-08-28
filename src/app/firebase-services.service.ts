@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { User } from '../models/user.class';
-import { Firestore, collection, collectionData, doc, onSnapshot } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, doc, onSnapshot, addDoc } from '@angular/fire/firestore';
 
 import { Observable } from 'rxjs';
 
@@ -19,7 +19,16 @@ export class FirebaseServicesService {
     
    }
   
-  
+  async addUser(item: User) {
+    await addDoc(this.getUsersRef(), item).catch(
+      (err) => {console.error(err)}
+    ).then(
+      (docRef) => {console.log("Document written with ID: ", docRef?.id)}
+    )
+    ;
+  }
+
+
    subUserList() {
     return onSnapshot(this.getUsersRef(), (list)=> {
       this.normalUsers = [];
